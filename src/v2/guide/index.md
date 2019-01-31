@@ -6,17 +6,17 @@ order: 2
 
 ## Vue.js nedir?
 
-Vue (telaffuzu /viuvː/, **view** gibi) kullanıcı arayüzleri oluşturmak için **ilerici bir çerçeve** dir. Diğer monolitik(tekparça) çerçevelerin aksine, Vue, aşamalı olarak benimsenecek şekilde sıfırdan tasarlanmıştır. Çekirdek kütüphanesi yalnızca görünüm katmanına odaklanmıştır, ve diğer kütüphaneler yada mevcut projelerle birleştirilmesi ve entegre edilmesi kolaydır. Diğer yandan, Vue [modern araçlar](single-file-components.html) ve [destekleyici kütüphaneler](https://github.com/vuejs/awesome-vue#components--libraries) ile birlikte kullanıldığında sofistike(çok gelişmiş) Tek Sayfalı Uygulamalara(SPA) mükemmel bir şekilde güç verir.
+Vue (telaffuzu /viuvː/, **view** gibi) kullanıcı arayüzleri oluşturmak için **ilerici bir çerçevedir**. Diğer monolitik(tekparça) çerçevelerin aksine, Vue, aşamalı olarak benimsenecek şekilde sıfırdan tasarlanmıştır. Çekirdek kütüphanesi yalnızca görünüm katmanına odaklanmıştır, ve diğer kütüphaneler ya da mevcut projelerle birleştirilmesi ve entegre edilmesi kolaydır. Diğer yandan, Vue [modern araçlar](single-file-components.html) ve [destekleyici kütüphaneler](https://github.com/vuejs/awesome-vue#components--libraries) ile birlikte kullanıldığında sofistike(çok gelişmiş) Tek Sayfalı Uygulamalara(SPA) mükemmel bir şekilde güç verir.
 
 Başlamadan önce Vue hakkında daha fazla bilgi edinmek isterseniz, temel ilkeler ve örnek proje üzerinden ilerleyen bir <a id="modal-player"  href="#">video hazıladık.</a>
 
-Eğer deneyimli bir fronted geliştiricisiyseniz ve Vue'nun diğer kütüphanelerle/çerçevelerle nasıl karşılaştırıldığını bilmek istiyorsanız, [Diğer Çerçevelerle Karşılaştırma](comparison.html) bölümüne bakın.
+Eğer deneyimli bir fronted geliştiricisi iseniz ve Vue'nun diğer kütüphanelerle/çerçevelerle(frameworklerle) nasıl karşılaştırıldığını bilmek istiyorsanız, [Diğer Çerçevelerle Karşılaştırma](comparison.html) bölümüne bakın.
 
 <div class="vue-mastery"><a href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/" target="_blank" rel="noopener" title="Free Vue.js Course">Vue Mastery'da ücretsiz bir video kursu izleyin</a></div>
 
 ## Başlarken
 
-<p class="tip">Resmi kılavuz, orta düzeyde HTML, CSS ve JavaScript bilginiz olduğunu varsayar. Eğer frontend geliştirmede tamamen yeni iseniz, ilk adım olarak bir çerçeveyi direk öğrenmeye başlamak iyi bir fikir olmayabilir - temelleri kavrayıp geri gelin! Diğer çerçevelerle ilgili deneyim yardımcı olur, ancak gerekli değildir.</p>
+<p class="tip">Resmi kılavuz, orta düzeyde HTML, CSS ve JavaScript bilginiz olduğunu varsayar. Eğer frontend geliştirmede tamamen yeni iseniz, ilk adım olarak bir çerçeveyi(framework) direk öğrenmeye başlamak iyi bir fikir olmayabilir - temelleri kavrayıp geri gelin! Diğer çerçevelerle ilgili deneyim yardımcı olur, ancak gerekli değildir.</p>
 
 Vue.js'i denemenin en kolay yolu [JSFiddle Hello World örneğini](https://jsfiddle.net/ErcanUzunsakal/aby6u2ds) kullanmaktır. Başka bir sekme açmaktan çekinmeyin ve bazı temel örnekleri incelerken takip edin. Ya da, bir<a href="https://gist.githubusercontent.com/Ercan93/ef377da0e2ab4ce39677ba027692a935/raw/fc360b3e808af7a6fc252f6340375316cbb67e54/index.html" target="_blank" download="index.html" rel="noopener noreferrer"> <code>index.html</code> dosyası oluşturabilir  </a> ve Vue'yu şununla dahil edebilirsiniz :
 
@@ -34,9 +34,9 @@ or:
 
 [Kurulum](installation.html) sayfası, Vue kurulumu için daha fazla seçenek sunar. Not: Yeni başlayanların `vue-cli` ile başlamalarını **önermiyoruz**, özellikle de Node.js tabanlı derleme araçlarını henüz bilmiyorsanız.
 
-Daha etkileşimli bir şey tercih etmek isterseniz, [Scrimba'daki bu öğretici videolara ](https://scrimba.com/playlist/pXKqta) bakabilirsiniz, Bu, istediğiniz zaman duraklatabileceğiniz ve oynatabileceğiniz bir ekran kaydı ve kod yazım alanı sunar.
+Daha etkileşimli bir şey tercih etmek isterseniz, [Scrimba'daki bu öğretici videolara ](https://scrimba.com/playlist/pXKqta) bakabilirsiniz, Burası(Scrimba), istediğiniz zaman duraklatabileceğiniz ve oynatabileceğiniz bir ekran kaydı ve kod yazım alanı sunar.
 
-## Beyan(tanımlayıcı) Oluşturma
+## Beyan(Tanımlayıcı) Oluşturma
 
 <div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cQ3QVcr" target="_blank" rel="noopener noreferrer">Scrimba'daki bu dersi dene</a></div>
 
@@ -44,32 +44,32 @@ Vue.js'nin özünde, basit bir şablon sözdizimini kullanarak bildirimsel olara
 
 ``` html
 <div id="app">
-  {{ message }}
+  {{ mesaj }}
 </div>
 ```
 ``` js
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Merhaba Vue!'
+    mesaj: 'Merhaba Vue!'
   }
 })
 ```
 {% raw %}
 <div id="app" class="demo">
-  {{ message }}
+  {{ mesaj }}
 </div>
 <script>
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Merhaba Vue!'
+    mesaj: 'Merhaba Vue!'
   }
 })
 </script>
 {% endraw %}
 
-Şimdiden ilk Vue uygulamamızı oluşturduk! Bu, bir dize(string) şablonu oluşturmaya oldukça benziyor, ancak Vue, arka planda çok iş yaptı. Veri ve DOM şimdi bağlandı, ve şimdi herşey **reaktif**. Nasıl bilebiliriz? Tarayıcınızın JavaScript konsolunu açın (şu anda bu sayfada) ve `app.message` öğesini farklı bir değere ayarlayın. Yukarıda işlenen örneği güncellemeye göre görmelisiniz.
+İlk Vue uygulamamızı şimdiden oluşturduk! Bu, bir dize(string) şablonu oluşturmaya oldukça benziyor, ancak Vue, arka planda çok iş yaptı. Veri ve DOM şimdi bağlandı, ve şimdi herşey **reaktif**. Nasıl emin olabiliriz? Tarayıcınızın JavaScript konsolunu açın (şu anda bu sayfada) ve `app.mesaj` öğesini farklı bir değere ayarlayın. Yukarıda işlenen örneği güncellemeye göre görmelisiniz.
 
 Metin eklemesine ek olarak, aşağıdaki gibi element özelliklerini de bağlayabiliriz:
 
@@ -106,7 +106,7 @@ var app2 = new Vue({
 </script>
 {% endraw %}
 
-Burada yeni bir şey ile karşılaşıyoruz. Gördüğünüz `v-bind` özniteliği(attribute),   **directive(yönerge)** olarak adlandırılır. Directive'ler, Vue tarafından sağlanan özel öznitelik(attribute) olduklarını belirtmek için `v-` ile eklenmiştir, ve tahmin edebileceğiniz gibi, işlenen DOM'a özel reaktif davranışlar uygularlar. Burada temel olarak "bu öğenin `title` özniteliğini(attribute) Vue instance'daki `mesaj` özelliği(property) ile güncel tutun" diyor.
+Burada yeni bir şey ile karşılaşıyoruz. Gördüğünüz `v-bind` özniteliği(attribute),   **yönerge(directive)** olarak adlandırılır. Yönergeler(directives), Vue tarafından sağlanan özel öznitelik(attribute) olduklarını belirtmek için önüne `v-` eklenmiştir, ve tahmin edebileceğiniz gibi, işlenen DOM'a özel reaktif davranışlar uygularlar. Burada temel olarak "bu öğenin `title` özniteliğini(attribute) Vue instance'daki `mesaj` özelliği(property) ile güncel tutun" diyor.
 
 Javascript konsolunuzu tekrar açıp `app2.mesaj = 'yeni bir mesaj'` yasarsanız, bir kez daha ilişkili HTML'in - bu durumda `title` attribute'unun - güncellendiğini göreceksiniz.
 
