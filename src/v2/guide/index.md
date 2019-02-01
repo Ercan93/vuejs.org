@@ -110,15 +110,15 @@ Burada yeni bir şey ile karşılaşıyoruz. Gördüğünüz `v-bind` özniteli�
 
 Javascript konsolunuzu tekrar açıp `app2.mesaj = 'yeni bir mesaj'` yasarsanız, bir kez daha ilişkili HTML'in - bu durumda `title` attribute'unun - güncellendiğini göreceksiniz.
 
-## Conditionals and Loops
+## Koşul ve Döngüler
 
-<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cEQe4SJ" target="_blank" rel="noopener noreferrer">Try this lesson on Scrimba</a></div>
+<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cEQe4SJ" target="_blank" rel="noopener noreferrer">Scrimba'daki dersi deneyin</a></div>
 
-It's easy to toggle the presence of an element, too:
+Bir öğenin varlığını değiştirmek çok kolaydır:
 
 ``` html
 <div id="app-3">
-  <span v-if="seen">Now you see me</span>
+  <span v-if="gorunum">Şuan beni görüyorsun</span>
 </div>
 ```
 
@@ -126,75 +126,74 @@ It's easy to toggle the presence of an element, too:
 var app3 = new Vue({
   el: '#app-3',
   data: {
-    seen: true
+    gorunum: true
   }
 })
 ```
 
 {% raw %}
 <div id="app-3" class="demo">
-  <span v-if="seen">Now you see me</span>
+  <span v-if="gorunum">Şuan beni görüyorsun</span>
 </div>
 <script>
 var app3 = new Vue({
   el: '#app-3',
   data: {
-    seen: true
+    gorunum: true
   }
 })
 </script>
 {% endraw %}
 
-Go ahead and enter `app3.seen = false` in the console. You should see the message disappear.
+Devam edin ve konsola `app3.gorunum = false` yazın. Mesajın kaybolduğunu görmelisin.
 
-This example demonstrates that we can bind data to not only text and attributes, but also the **structure** of the DOM. Moreover, Vue also provides a powerful transition effect system that can automatically apply [transition effects](transitions.html) when elements are inserted/updated/removed by Vue.
-
-There are quite a few other directives, each with its own special functionality. For example, the `v-for` directive can be used for displaying a list of items using the data from an Array:
+Bu örnek, verileri yalnızca metin ve attribute'lara değil aynı zamanda DOM **yapısı**na da bağlayabildiğimizi göstermektedir. Vue ayrıca, öğeler Vue tarafından eklendiğinde/güncellendiğinde/kaldırıldığında geçiş efeklerini otomatik olarak uygulayan güçlü bir [geçiş efekt](transitions.html) sistemi sağlar.
+Her biri kendi özel işlevselliğine sahip olan oldukça az sayıda başka directive var. Örneğin, `v-for` directive'i, bir Dizideki verileri kullanarak bir öğe listesini görüntülemek için kullanılabilir:
 
 ``` html
-<div id="app-4">
+<div id="uygulama-4">
   <ol>
-    <li v-for="todo in todos">
-      {{ todo.text }}
+    <li v-for="gorev in gorevler">
+      {{ gorevler.metin }}
     </li>
   </ol>
 </div>
 ```
 ``` js
 var app4 = new Vue({
-  el: '#app-4',
+  el: '#uygulama-4',
   data: {
-    todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue' },
-      { text: 'Build something awesome' }
+    gorevler: [
+      { metin: 'JavaScript öğrenilecek' },
+      { metin: 'Vue öğrenilecek' },
+      { metin: 'Harika bir şey yap' }
     ]
   }
 })
 ```
 {% raw %}
-<div id="app-4" class="demo">
+<div id="uygulama-4" class="demo">
   <ol>
-    <li v-for="todo in todos">
-      {{ todo.text }}
+    <li v-for="gorev in gorevler">
+      {{ gorevler.metin }}
     </li>
   </ol>
 </div>
 <script>
 var app4 = new Vue({
-  el: '#app-4',
+  el: '#uygulama-4',
   data: {
-    todos: [
-      { text: 'Learn JavaScript' },
-      { text: 'Learn Vue' },
-      { text: 'Build something awesome' }
+    gorevler: [
+      { metin: 'JavaScript öğrenilecek' },
+      { metin: 'Vue öğrenilecek' },
+      { metin: 'Harika bir şey yap' }
     ]
   }
 })
 </script>
 {% endraw %}
 
-In the console, enter `app4.todos.push({ text: 'New item' })`. You should see a new item appended to the list.
+Konsola `app4.Gorevler.push({ metin: 'Yeni öğe' })` yazın, listeye yeni bir öğe eklendiğini göreceksiniz.
 
 ## Handling User Input
 
