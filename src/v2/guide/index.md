@@ -161,7 +161,7 @@ Her biri kendi özel işlevselliğine sahip olan oldukça az sayıda başka dire
 ```
 ``` js
 var app4 = new Vue({
-  el: '#uygulama-4',
+  el: '#app-4',
   data: {
     gorevler: [
       { metin: 'JavaScript öğrenilecek' },
@@ -172,7 +172,7 @@ var app4 = new Vue({
 })
 ```
 {% raw %}
-<div id="uygulama-4" class="demo">
+<div id="app-4" class="demo">
   <ol>
     <li v-for="gorev in gorevler">
       {{ gorevler.metin }}
@@ -181,7 +181,7 @@ var app4 = new Vue({
 </div>
 <script>
 var app4 = new Vue({
-  el: '#uygulama-4',
+  el: '#app-4',
   data: {
     gorevler: [
       { metin: 'JavaScript öğrenilecek' },
@@ -195,26 +195,26 @@ var app4 = new Vue({
 
 Konsola `app4.Gorevler.push({ metin: 'Yeni öğe' })` yazın, listeye yeni bir öğe eklendiğini göreceksiniz.
 
-## Handling User Input
+## Kullanıcı girişlerinin kullanımı
 
-<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/czPNaUr" target="_blank" rel="noopener noreferrer">Try this lesson on Scrimba</a></div>
+<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/czPNaUr" target="_blank" rel="noopener noreferrer">Scrimba'daki bu dersi dene</a></div>
 
-To let users interact with your app, we can use the `v-on` directive to attach event listeners that invoke methods on our Vue instances:
+Kullanıcıların uygulamanızla etkileşimde bulunmasına izin vermek için, Vue instances'taki yöntemleri çağıran olay dinleyicileri eklemek için `v-on` directive'ini kullanabiliriz:
 
 ``` html
 <div id="app-5">
   <p>{{ message }}</p>
-  <button v-on:click="reverseMessage">Reverse Message</button>
+  <button v-on:click="mesajiTersCevir">Mesajı ters çevir</button>
 </div>
 ```
 ``` js
 var app5 = new Vue({
   el: '#app-5',
   data: {
-    message: 'Hello Vue.js!'
+    message: 'Merhaba Vue.js!'
   },
   methods: {
-    reverseMessage: function () {
+    mesajiTersCevir: function () {
       this.message = this.message.split('').reverse().join('')
     }
   }
@@ -223,16 +223,16 @@ var app5 = new Vue({
 {% raw %}
 <div id="app-5" class="demo">
   <p>{{ message }}</p>
-  <button v-on:click="reverseMessage">Reverse Message</button>
+  <button v-on:click="mesajiTersCevir">Mesajı ters çevir</button>
 </div>
 <script>
 var app5 = new Vue({
   el: '#app-5',
   data: {
-    message: 'Hello Vue.js!'
+    message: 'Merhaba Vue.js!'
   },
   methods: {
-    reverseMessage: function () {
+    mesajiTersCevir: function () {
       this.message = this.message.split('').reverse().join('')
     }
   }
@@ -240,34 +240,33 @@ var app5 = new Vue({
 </script>
 {% endraw %}
 
-Note that in this method we update the state of our app without touching the DOM - all DOM manipulations are handled by Vue, and the code you write is focused on the underlying logic.
+Bu yöntemde, DOM'a dokunmadan uygulamamızın durumunu güncellediğimizi unutmayın - tüm DOM manipülasyonları Vue tarafından yapılır ve Vue'nun, yazdığınız kodun temel mantığa odaklandığını unutmayın.
 
-Vue also provides the `v-model` directive that makes two-way binding between form input and app state a breeze:
-
+Vue, form girişi ve uygulama durumu arasında iki yönlü bağlama yapan `v-model` directive'i sağlar:
 ``` html
 <div id="app-6">
-  <p>{{ message }}</p>
-  <input v-model="message">
+  <p>{{ mesaj }}</p>
+  <input v-model="mesaj">
 </div>
 ```
 ``` js
 var app6 = new Vue({
   el: '#app-6',
   data: {
-    message: 'Hello Vue!'
+    mesaj: 'Merhaba Vue!'
   }
 })
 ```
 {% raw %}
 <div id="app-6" class="demo">
-  <p>{{ message }}</p>
-  <input v-model="message">
+  <p>{{ mesaj }}</p>
+  <input v-model="mesaj">
 </div>
 <script>
 var app6 = new Vue({
   el: '#app-6',
   data: {
-    message: 'Hello Vue!'
+    mesaj: 'Merhaba Vue!'
   }
 })
 </script>
