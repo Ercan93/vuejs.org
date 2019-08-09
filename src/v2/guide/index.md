@@ -151,7 +151,7 @@ Bu örnek, verileri yalnızca metin ve attribute'lara değil aynı zamanda DOM *
 Her biri kendi özel işlevselliğine sahip olan oldukça az sayıda başka directive var. Örneğin, `v-for` directive'i, bir Dizideki verileri kullanarak bir öğe listesini görüntülemek için kullanılabilir:
 
 ``` html
-<div id="uygulama-4">
+<div id="app-4">
   <ol>
     <li v-for="gorev in gorevler">
       {{ gorevler.metin }}
@@ -203,7 +203,7 @@ Kullanıcıların uygulamanızla etkileşimde bulunmasına izin vermek için, Vu
 
 ``` html
 <div id="app-5">
-  <p>{{ message }}</p>
+  <p>{{ mesaj }}</p>
   <button v-on:click="mesajiTersCevir">Mesajı ters çevir</button>
 </div>
 ```
@@ -211,29 +211,29 @@ Kullanıcıların uygulamanızla etkileşimde bulunmasına izin vermek için, Vu
 var app5 = new Vue({
   el: '#app-5',
   data: {
-    message: 'Merhaba Vue.js!'
+    mesaj: 'Merhaba Vue.js!'
   },
   methods: {
     mesajiTersCevir: function () {
-      this.message = this.message.split('').reverse().join('')
+      this.mesaj = this.mesaj.split('').reverse().join('')
     }
   }
 })
 ```
 {% raw %}
 <div id="app-5" class="demo">
-  <p>{{ message }}</p>
+  <p>{{ mesaj }}</p>
   <button v-on:click="mesajiTersCevir">Mesajı ters çevir</button>
 </div>
 <script>
 var app5 = new Vue({
   el: '#app-5',
   data: {
-    message: 'Merhaba Vue.js!'
+    mesaj: 'Merhaba Vue.js!'
   },
   methods: {
     mesajiTersCevir: function () {
-      this.message = this.message.split('').reverse().join('')
+      this.mesaj = this.mesaj.split('').reverse().join('')
     }
   }
 })
