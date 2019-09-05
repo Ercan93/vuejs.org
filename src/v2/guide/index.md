@@ -322,7 +322,7 @@ Vue.component('todo-item', {
       bu daha sonra açıklanacak.
     -->
     <todo-item
-      v-for="item in groceryList"
+      v-for="item in alınacaklarListesi"
       v-bind:todo="item"
       v-bind:key="item.id"
     ></todo-item>
