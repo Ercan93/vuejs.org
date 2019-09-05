@@ -272,54 +272,54 @@ var app6 = new Vue({
 </script>
 {% endraw %}
 
-## Composing with Components
+## Bileşen(component) yapılandırma
 
-<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cEQVkA3" target="_blank" rel="noopener noreferrer">Try this lesson on Scrimba</a></div>
+<div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cEQVkA3" target="_blank" rel="noopener noreferrer">Scrimba'daki bu dersi dene</a></div>
 
-The component system is another important concept in Vue, because it's an abstraction that allows us to build large-scale applications composed of small, self-contained, and often reusable components. If we think about it, almost any type of application interface can be abstracted into a tree of components:
+Bileşen sistemi Vue.js'deki bir başka önemli soyutlamadır. "Küçün kendi kendine yeten, sıklıkla yeniden kullanılabilir bileşenleri" birleştirerek, büyük ölçekli uygulamalar oluşturabilirsiniz. Bir düşünün, uygulama arayüzleri göz önüne alındığında, hemen hemen her türlü arayüz bileşen ağacından  soyulanabilir.
 
 ![Component Tree](/images/components.png)
 
-In Vue, a component is essentially a Vue instance with pre-defined options. Registering a component in Vue is straightforward:
+Vue'da, bir “bileşen” aslında önceden tanımlanmış seçeneklere sahip bir Vue örneğidir. Vue kullanarak bir bileşeni kaydetmek kolaydır:
 
 ``` js
-// Define a new component called todo-item
+// todo-item adlı yeni bir bileşen(component) tanımla
 Vue.component('todo-item', {
-  template: '<li>This is a todo</li>'
+  template: '<li>Bu bir todo öğesi</li>'
 })
 ```
 
-Now you can compose it in another component's template:
+Şimdi bu bileşeni diğer bileşenlerin şablonlarında(template) kullanabilirsiniz.
 
 ``` html
 <ol>
-  <!-- Create an instance of the todo-item component -->
+  <!-- todo-item bileşenin bir örneğini oluşturduk -->
   <todo-item></todo-item>
 </ol>
 ```
 
-But this would render the same text for every todo, which is not super interesting. We should be able to pass data from the parent scope into child components. Let's modify the component definition to make it accept a [prop](components.html#Props):
+Ancak bu, yapılacak her öğe için aynı metni gösterecektir; bu çok kullanışlı değil. Verileri üst kapsamdan alt bileşene aktarabilmemiz gerekir. Bileşenin tanımını değiştirelim ki bir [prop](components.html#Props)(özellik) kabul etsin.
 
 ``` js
 Vue.component('todo-item', {
-  // The todo-item component now accepts a
-  // "prop", which is like a custom attribute.
-  // This prop is called todo.
+  // todo-item bileşeni artık özel bir nitelik(attribute)
+  // gibi olan bir "prop"u kabul ediyor.
+  // Bu prop todo diye çağırılır.
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>'
 })
 ```
 
-Now we can pass the todo into each repeated component using `v-bind`:
+Şimdi `v-bind` kullanarak todo'yu tekrarlanan her bileşene geçirebiliriz:
 
 ``` html
 <div id="app-7">
   <ol>
     <!--
-      Now we provide each todo-item with the todo object
-      it's representing, so that its content can be dynamic.
-      We also need to provide each component with a "key",
-      which will be explained later.
+      Şimdi her todo-item'a, temsil ettiği todo nesnesini 
+      sağladık, böylece içeriği dinamik olabilir.
+      Ayrıca her bileşene bir "anahtar" sağlamamız gerekiyor,
+      bu daha sonra açıklanacak.
     -->
     <todo-item
       v-for="item in groceryList"
@@ -338,10 +338,10 @@ Vue.component('todo-item', {
 var app7 = new Vue({
   el: '#app-7',
   data: {
-    groceryList: [
-      { id: 0, text: 'Vegetables' },
-      { id: 1, text: 'Cheese' },
-      { id: 2, text: 'Whatever else humans are supposed to eat' }
+    alınacaklarListesi: [
+      { id: 0, text: 'Sebzeler' },
+      { id: 1, text: 'Zile Pekmezi' },
+      { id: 2, text: 'İnsanın yiyebildiği ne varsa' }
     ]
   }
 })
@@ -349,7 +349,7 @@ var app7 = new Vue({
 {% raw %}
 <div id="app-7" class="demo">
   <ol>
-    <todo-item v-for="item in groceryList" v-bind:todo="item" :key="item.id"></todo-item>
+    <todo-item v-for="item in alınacaklarListesi" v-bind:todo="item" :key="item.id"></todo-item>
   </ol>
 </div>
 <script>
@@ -360,10 +360,10 @@ Vue.component('todo-item', {
 var app7 = new Vue({
   el: '#app-7',
   data: {
-    groceryList: [
-      { id: 0, text: 'Vegetables' },
-      { id: 1, text: 'Cheese' },
-      { id: 2, text: 'Whatever else humans are supposed to eat' }
+    alınacaklarListesi: [
+      { id: 0, text: 'Sebzeler' },
+      { id: 1, text: 'Zile Pekmezi' },
+      { id: 2, text: 'İnsanın yiyebildiği ne varsa' }
     ]
   }
 })
