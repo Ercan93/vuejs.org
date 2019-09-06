@@ -195,7 +195,7 @@ var app4 = new Vue({
 
 Konsola `app4.Gorevler.push({ metin: 'Yeni öğe' })` yazın, listeye yeni bir öğe eklendiğini göreceksiniz.
 
-## Kullanıcı girişlerinin kullanımı
+## Kullanıcı Girişlerinin Kullanımı
 
 <div class="scrimba"><a href="https://scrimba.com/p/pXKqta/czPNaUr" target="_blank" rel="noopener noreferrer">Scrimba'daki bu dersi dene</a></div>
 
@@ -272,15 +272,15 @@ var app6 = new Vue({
 </script>
 {% endraw %}
 
-## Bileşen(component) yapılandırma
+## Bileşen(component) Yapılandırma
 
 <div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cEQVkA3" target="_blank" rel="noopener noreferrer">Scrimba'daki bu dersi dene</a></div>
 
-Bileşen sistemi Vue.js'deki bir başka önemli soyutlamadır. "Küçün kendi kendine yeten, sıklıkla yeniden kullanılabilir bileşenleri" birleştirerek, büyük ölçekli uygulamalar oluşturabilirsiniz. Bir düşünün, uygulama arayüzleri göz önüne alındığında, hemen hemen her türlü arayüz bileşen ağacından  soyulanabilir.
+Bileşen sistemi Vue.js'deki bir başka önemli soyutlamadır. "Küçün kendi kendine yeten, sıklıkla yeniden kullanılabilir componentleri" birleştirerek, büyük ölçekli uygulamalar oluşturabilirsiniz. Bir düşünün, uygulama arayüzleri göz önüne alındığında, hemen hemen her türlü arayüz component ağacından  soyulanabilir.
 
 ![Component Tree](/images/components.png)
 
-Vue'da, bir “bileşen” aslında önceden tanımlanmış seçeneklere sahip bir Vue örneğidir. Vue kullanarak bir bileşeni kaydetmek kolaydır:
+Vue'da, bir “bileşen(component)” aslında önceden tanımlanmış seçeneklere sahip bir Vue örneğidir. Vue kullanarak bir componenti kaydetmek kolaydır:
 
 ``` js
 // todo-item adlı yeni bir bileşen(component) tanımla
@@ -289,7 +289,7 @@ Vue.component('todo-item', {
 })
 ```
 
-Şimdi bu bileşeni diğer bileşenlerin şablonlarında(template) kullanabilirsiniz.
+Şimdi bu componenti diğer componentlerin şablonlarında(template) kullanabilirsiniz.
 
 ``` html
 <ol>
@@ -298,7 +298,7 @@ Vue.component('todo-item', {
 </ol>
 ```
 
-Ancak bu, yapılacak her öğe için aynı metni gösterecektir; bu çok kullanışlı değil. Verileri üst kapsamdan alt bileşene aktarabilmemiz gerekir. Bileşenin tanımını değiştirelim ki bir [prop](components.html#Props)(özellik) kabul etsin.
+Ancak bu, yapılacak her öğe için aynı metni gösterecektir; bu çok kullanışlı değil. Verileri üst kapsamdan alt bileşene aktarabilmemiz gerekir. Component'in tanımını değiştirelim ki bir [prop](components.html#Props)(özellik) kabul etsin.
 
 ``` js
 Vue.component('todo-item', {
@@ -310,7 +310,7 @@ Vue.component('todo-item', {
 })
 ```
 
-Şimdi `v-bind` kullanarak todo'yu tekrarlanan her bileşene geçirebiliriz:
+Şimdi `v-bind` kullanarak todo'yu tekrarlanan her component'e geçirebiliriz:
 
 ``` html
 <div id="app-7">
@@ -370,9 +370,9 @@ var app7 = new Vue({
 </script>
 {% endraw %}
 
-This is a contrived example, but we have managed to separate our app into two smaller units, and the child is reasonably well-decoupled from the parent via the props interface. We can now further improve our `<todo-item>` component with more complex template and logic without affecting the parent app.
+Bu sadece kasıtlı bir tasarım örneği olmasına rağmen, uygulamayı iki küçük birime ayırmayı başardık. Alt birim(child), props arayüzü vasıtasıyla ana bileşenden(parent) iyi bir şekilde ayrılmaktadır. Gelecekte, ana uygulamanızı etkilemeden `<todo-item>` componentlerinizi daha karmaşık şablonlar ve mantıklarla daha da geliştirebileceksiniz.
 
-In a large application, it is necessary to divide the whole app into components to make development manageable. We will talk a lot more about components [later in the guide](components.html), but here's an (imaginary) example of what an app's template might look like with components:
+Büyük bir uygulamada, gelişimi yönetilebilir hale getirmek için tüm uygulamayı componentlere bölmek gerekir. Bir [sonraki kılavuzda](components.html), bileşenler hakkında daha fazla konuşacağız, ancak bir uygulamanın template'inin componentlere nasıl görünebileceğinin (kurgusal) bir örneği:
 
 ``` html
 <div id="app">
@@ -384,16 +384,17 @@ In a large application, it is necessary to divide the whole app into components 
 </div>
 ```
 
-### Relation to Custom Elements
+### Özel Öğelerle(Custom Elements) İlişki
 
-You may have noticed that Vue components are very similar to **Custom Elements**, which are part of the [Web Components Spec](https://www.w3.org/wiki/WebComponents/). That's because Vue's component syntax is loosely modeled after the spec. For example, Vue components implement the [Slot API](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md) and the `is` special attribute. However, there are a few key differences:
+Vue componentlerinin, [Web Componentleri Spesifikasyonunun](https://www.w3.org/wiki/WebComponents/) bir parçası olan **Custom Elements'lere** çok benzer olduğunu fark etmiş olabilirsiniz.  Bunun nedeni Vue'nun bileşen sözdiziminin belirtimden sonra gevşek bir şekilde modellenmesidir. Örneğin, Vue componentleri [Slot API](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md) ve `is` özel attribute'unu(nitelik) uygular. Ancak bir kaç özemli fark vardır:
 
-1. The Web Components Spec has been finalized, but is not natively implemented in every browser. Safari 10.1+, Chrome 54+ and Firefox 63+ natively support web components. In comparison, Vue components don't require any polyfills and work consistently in all supported browsers (IE9 and above). When needed, Vue components can also be wrapped inside a native custom element.
+1. Web Bileşenleri Spesifikasyonu tamamlandı, ancak tüm tarayıcılar tarafından yerel olarak uygulanmıyor. Safari 10.1+, Chrome 54+ ve Firefox 63+ yerel olarak Web Componentleri destekler. Buna karşılık, Vue bileşeni herhangi bir polyfill gerektirmez ve desteklenen tüm tarayıcılarda (IE9 ve üstü) aynı şekilde çalışır. Gerekirse, Vue bileşenleri native custom element(yerel özel öğeler) içine sarılabilir.
 
-2. Vue components provide important features that are not available in plain custom elements, most notably cross-component data flow, custom event communication and build tool integrations.
 
-## Ready for More?
+2. Vue bileşenleri, düz custom elementlerde bulunmayan, özellikle de cross-component(çapraz bileşen) veri akışı, custom event (özel olay) iletişimi ve araç entegrasyonları gibi önemli özellikler sunar.
 
-We've briefly introduced the most basic features of Vue.js core - the rest of this guide will cover them and other advanced features with much finer details, so make sure to read through it all!
+## Daha fazlası için Hazır mısın?
 
-<div id="video-modal" class="modal"><div class="video-space" style="padding: 56.25% 0 0 0; position: relative;"><iframe src="https://player.vimeo.com/video/247494684" style="height: 100%; left: 0; position: absolute; top: 0; width: 100%; margin: 0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script><p class="modal-text">Video by <a href="https://www.vuemastery.com" target="_blank" rel="noopener" title="Vue.js Courses on Vue Mastery">Vue Mastery</a>. Watch Vue Mastery’s free <a href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/" target="_blank" rel="noopener" title="Vue.js Courses on Vue Mastery">Intro to Vue course</a>.</div>
+Vue.js çekirdeğinin en temel özelliklerini kısaca açıkladık - bu kılavuzun geri kalanı, temel özellikler ve daha gelişmiş ayrıntılara sahip diğer gelişmiş özellikleri ayrıntılı olarak ele alacaktır, bu nedenle dokümanın hepsini okuduğunuzdan emin olun!
+
+<div id="video-modal" class="modal"><div class="video-space" style="padding: 56.25% 0 0 0; position: relative;"><iframe src="https://player.vimeo.com/video/247494684" style="height: 100%; left: 0; position: absolute; top: 0; width: 100%; margin: 0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script><p class="modal-text">Video by <a href="https://www.vuemastery.com" target="_blank" rel="noopener" title="Vue.js Courses on Vue Mastery">Vue Mastery</a>. Vue Mastery'de ücretsiz izle <a href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/" target="_blank" rel="noopener" title="Vue.js Courses on Vue Mastery">Vue kursuna giriş</a>.</div>
