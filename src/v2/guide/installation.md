@@ -6,43 +6,43 @@ vue_version: 2.5.16
 gz_size: "30.90"
 ---
 
-### Compatibility Note
+### Uyumluluk Notu
 
-Vue does **not** support IE8 and below, because it uses ECMAScript 5 features that are un-shimmable in IE8. However it supports all [ECMAScript 5 compliant browsers](https://caniuse.com/#feat=es5).
+IE8'de desteklenmeyen bazı ECMAScript 5 özelliklerinin kullanımı nedeniyle, Vue IE8 ve daha düşük sürümleri **desteklemez**. Ancak [ECMAScript 5 ile uyumlu bütün tarayıcıları](https://caniuse.com/#feat=es5) destekler.
 
-### Release Notes
+### Yayın Notları
 
-Latest stable version: {{vue_version}}
+Son kararlı sürüm: {{vue_version}}
 
-Detailed release notes for each version are available on [GitHub](https://github.com/vuejs/vue/releases).
+Her sürüm için ayrıntılı sürüm notları [GitHub'da](https://github.com/vuejs/vue/releases) mevcuttur.
 
 ## Vue Devtools
 
-When using Vue, we recommend also installing the [Vue Devtools](https://github.com/vuejs/vue-devtools#vue-devtools) in your browser, allowing you to inspect and debug your Vue applications in a more user-friendly interface.
+Vue kullanırken, [Vue Devtools'u](https://github.com/vuejs/vue-devtools#vue-devtools) tarayıcına yüklemenizi öneririz. Bu, Vue uygulamalarınızı kullanıcı dostu bir arabirimde kolayca gözden geçirmenizi ve debug etmenizi sağlar.
 
-## Direct `<script>` Include
+## Doğrudan `<script>` üzerinden kullanım
 
-Simply download and include with a script tag. `Vue` will be registered as a global variable.
+Tek yapmanız gereken JS dosyasını indirmek ve script tag'i olarak eklemektir. `Vue` global bir değişken olarak kaydedilecektir.
 
-<p class="tip">Don't use the minified version during development. You will miss out on all the nice warnings for common mistakes!</p>
+<p class="tip">Geliştirme sırasında üretim sürümünü kullanmayın. Uyarıları ve yaygın hataları kaçırabilirsiniz!</p>
 
 <div id="downloads">
-<a class="button" href="/js/vue.js" download>Development Version</a><span class="light info">With full warnings and debug mode</span>
+<a class="button" href="/js/vue.js" download>Geliştirme Sürümü</a><span class="light info">Tüm uyarı iletileri ve hata ayıklama modu içerir</span>
 
-<a class="button" href="/js/vue.min.js" download>Production Version</a><span class="light info">Warnings stripped, {{gz_size}}KB min+gzip</span>
+<a class="button" href="/js/vue.min.js" download>Ürün(Production) Sürümü</a><span class="light info">Hata mesajı yok, {{gz_size}}KB min+gzip</span>
 </div>
 
 ### CDN
 
-We recommend linking to a specific version number that you can update manually:
+Manuel olarak güncelleyebileceğiniz belirli bir sürüm numarasına bağlanmanızı öneririz:
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 ```
 
-You can browse the source of the NPM package at [cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue/).
+NPM paketinin kaynak kodu [cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue/)'da mevcuttur.
 
-Vue is also available on [unpkg](https://unpkg.com/vue@{{vue_version}}/dist/vue.js) and [cdnjs](https://cdnjs.cloudflare.com/ajax/libs/vue/{{vue_version}}/vue.js) (cdnjs takes some time to sync so the latest release may not be available yet).
+Vue'da [unpkg](https://unpkg.com/vue@{{vue_version}}/dist/vue.js) ve [cdnjs](https://cdnjs.cloudflare.com/ajax/libs/vue/{{vue_version}}/vue.js) mevcuttur( cdnjs sürüm güncellemeleri biraz gecikebilir ).
 
 Make sure to read about [the different builds of Vue](#Explanation-of-Different-Builds) and use the **production
  version** in your published site, replacing `vue.js` with `vue.min.js`. This is a smaller build optimized for speed instead of development experience.
